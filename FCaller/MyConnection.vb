@@ -3,7 +3,8 @@ Imports System.Data.SqlClient
 
 Public Class MyConnection
     Dim MySource = My.Settings.MyConnectionString
-    Public conn As New SqlConnection("Data Source=" + MySource + ";Initial Catalog=FOmrExams;Integrated Security=True")
+
+    Public conn As New SqlConnection("Data Source=" + MySource + ";Initial Catalog=FOmrExamsDB;Persist Security Info=True;User ID=sa;Password=MySqlPassword")
 
     Sub New()
 

@@ -27,7 +27,7 @@ Public Class MainForm
         Dim querry As String
         Dim mysqlAdapter As SqlDataAdapter
         Dim ds As New DataSet()
-        querry = "select  distinct Name_Language from dbo.Exams_Language join Exams_tbl on Exams_tbl.Id_Language=Exams_Language.Id_Language where  Name_Exam ='" + ComboBox_ExamN.SelectedValue + "';"
+        querry = "select  distinct Name_Language from Exams_Language join Exams_tbl on Exams_tbl.Id_Language=Exams_Language.Id_Language where  Name_Exam ='" + ComboBox_ExamN.SelectedValue + "';"
 
         Dim myCmd1 As New SqlCommand(querry)
         mysqlAdapter = New SqlDataAdapter(myCmd1.CommandText, myConn.openConnection)
