@@ -403,18 +403,14 @@ Public Class MainForm
     End Sub
     Private Function checkIfExist() As Boolean
         Dim result As Boolean
-        result = False
         Dim reader As SqlDataReader
         Try
+            result = False
 
 
-            ' Dim querry As String = "select * From PaperOmr_tbl where Path_PaperOmr= @Path_PaperOmr;"
-            Dim querry As String = "select * from CandidatNames_tbl"
-            Dim cmdChek As SqlCommand
-            cmdChek = New SqlCommand(querry, myConn.openConnection())
-
-            reader = cmdChek.ExecuteReader()
-
+            Dim cmd As New SqlCommand("getAllCandidat", myConn.openConnection())
+            cmd.CommandType = CommandType.StoredProcedure
+            reader = cmd.ExecuteReader()
             If reader.HasRows Then
 
                 MsgBox(" Names already exist ")
@@ -426,13 +422,47 @@ Public Class MainForm
 
             End If
             reader.Close()
-        Catch ex As SqlException
-            MessageBox.Show("savetoDb check if exist" + ex.Message)
-            reader.Close()
             myConn.closeConnection()
+            Return result
+        Catch ex As Exception
+            myConn.closeConnection()
+            MessageBox.Show(ex.Message)
+            Return result
         End Try
 
-        myConn.closeConnection()
-        Return result
+
+
+        'Dim result As Boolean
+        'result = False
+        'Dim reader As SqlDataReader
+        'Try
+
+
+        '    ' Dim querry As String = "select * From PaperOmr_tbl where Path_PaperOmr= @Path_PaperOmr;"
+        '    Dim querry As String = "select * from CandidatNames_tbl"
+        '    Dim cmdChek As SqlCommand
+        '    cmdChek = New SqlCommand(querry, myConn.openConnection())
+
+        '    reader = cmdChek.ExecuteReader()
+
+        '    If reader.HasRows Then
+
+        '        MsgBox(" Names already exist ")
+
+        '        result = True
+
+        '    Else
+        '        result = False
+
+        '    End If
+        '    reader.Close()
+        'Catch ex As SqlException
+        '    MessageBox.Show("savetoDb check if exist" + ex.Message)
+        '    reader.Close()
+        '    myConn.closeConnection()
+        'End Try
+
+        'myConn.closeConnection()
+        'Return result
     End Function
 End Class
