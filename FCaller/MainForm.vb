@@ -68,28 +68,22 @@ Public Class MainForm
 
     End Sub
     Private Sub addLanguage()
+
+
         Try
-            Dim cmd As SqlCommand
 
-            Dim querryInsert As String
-            querryInsert = "INSERT INTO Exams_Language (Name_Language)  VALUES('Francais');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
+            Dim cmd As New SqlCommand("Insert3Languages", myConn.openConnection())
+            cmd.CommandType = CommandType.StoredProcedure
             cmd.ExecuteNonQuery()
             myConn.closeConnection()
-            querryInsert = "INSERT INTO Exams_Language (Name_Language)  VALUES('Arabic');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
-            cmd.ExecuteNonQuery()
-            myConn.closeConnection()
-            querryInsert = "INSERT INTO Exams_Language (Name_Language)  VALUES('English');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
-            cmd.ExecuteNonQuery()
-            myConn.closeConnection()
-
 
         Catch ex As Exception
             myConn.closeConnection()
             MessageBox.Show(ex.Message)
         End Try
+
+
+
     End Sub
 
     Private Function checkIfLanguage()
