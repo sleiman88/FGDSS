@@ -68,8 +68,6 @@ Public Class MainForm
 
     End Sub
     Private Sub addLanguage()
-
-
         Try
 
             Dim cmd As New SqlCommand("Insert3Languages", myConn.openConnection())
@@ -134,24 +132,11 @@ Public Class MainForm
     End Function
 
     Private Sub addType()
-        Try
-            Dim cmd As SqlCommand
 
-            Dim querryInsert As String
-            querryInsert = "INSERT INTO Exams_type (Name_type)  VALUES('A');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
-            cmd.ExecuteNonQuery()
-            myConn.closeConnection()
-            querryInsert = "INSERT INTO Exams_type (Name_type)  VALUES('B');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
-            cmd.ExecuteNonQuery()
-            myConn.closeConnection()
-            querryInsert = "INSERT INTO Exams_type (Name_type)  VALUES('C');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
-            cmd.ExecuteNonQuery()
-            myConn.closeConnection()
-            querryInsert = "INSERT INTO Exams_type (Name_type)  VALUES('error');"
-            cmd = New SqlCommand(querryInsert, myConn.openConnection)
+        Try
+
+            Dim cmd As New SqlCommand("InsertExamsType", myConn.openConnection())
+            cmd.CommandType = CommandType.StoredProcedure
             cmd.ExecuteNonQuery()
             myConn.closeConnection()
 
@@ -265,42 +250,16 @@ Public Class MainForm
                             ProgressBar_Action.PerformStep()
                         Next
 
-                        'Dim th1, th2 As Threading.Thread
-                        'th1 = New Threading.Thread(AddressOf callGdssOmr)
-                        'th2 = New Threading.Thread(AddressOf callGdssOmr)
-
-                        'Dim LastIndexList As Int32
-                        'LastIndexList = lst.IndexOf(lst.Last)
-                        'Dim tempIndex As Int32
-                        'tempIndex = 0
-
-                        'If CountFile Mod 2 <> 0 Then
-                        '    th1.Start(lst(0))
-                        '    th1.Join()
-                        '    counter += 1
-                        '    ProgressBar_Action.PerformStep()
-                        '    tempIndex = 1
-
-                        'End If
-                        'For i = tempIndex To LastIndexList Step 2
-                        '    th1.Start(lst(i))
-                        '    th2.Start(lst(i + 1))
-                        '    th1.Join()
-                        '    th2.Join()
-                        '    counter += 2
-                        '    ProgressBar_Action.PerformStep()
-                        '    ProgressBar_Action.PerformStep()
-                        'Next
 
 
                         My.Computer.Audio.Play("c:\windows\media\Windows Ding.wav", AudioPlayMode.Background)
                         MessageBox.Show("finish Scanned " + counter.ToString + "  Paper")
-                            ProgressBar_Action.Value = 0
+                        ProgressBar_Action.Value = 0
 
 
                     Else
 
-                            MessageBox.Show("non jpg files found ")
+                        MessageBox.Show("non jpg files found ")
                     End If
                     Button_Start.Enabled = True
                 End If
@@ -315,38 +274,55 @@ Public Class MainForm
     '    MyOmrPic.startdetect(Nothing, Nothing)
     'End Sub
     Private Function getLastScanId() As Int32
-        Dim resultID As Int32
 
         Try
-            Dim Dtable As DataTable
+            Dim resultID As Int32
 
-            Dim queryId As String
-            Dim cmd As SqlCommand
-            Dim dsID As New DataSet()
-            Dim sqlAdapter As SqlDataAdapter
-            queryId = "Select ISNULL ( Max(Id_Scan ),1) from Scan_tbl;"
-
-            cmd = New SqlCommand(queryId)
-            dsID.Clear()
-
-            sqlAdapter = New SqlDataAdapter(cmd.CommandText, myConn.openConnection)
-
-            sqlAdapter.Fill(dsID)
-
-
-            Dtable = dsID.Tables(0)
-
-
-            resultID = Dtable.Rows(0)(0)
-
+            Dim cmd As New SqlCommand("getLastScanId", myConn.openConnection())
+            cmd.CommandType = CommandType.StoredProcedure
+            resultID = cmd.ExecuteScalar
             myConn.closeConnection()
-
-
+            Return resultID
         Catch ex As Exception
             myConn.closeConnection()
             MessageBox.Show(ex.Message)
         End Try
-        Return resultID
+
+
+
+
+        'Dim resultID As Int32
+
+        'Try
+        '    Dim Dtable As DataTable
+
+        '    Dim queryId As String
+        '    Dim cmd As SqlCommand
+        '    Dim dsID As New DataSet()
+        '    Dim sqlAdapter As SqlDataAdapter
+        '    queryId = "Select ISNULL ( Max(Id_Scan ),1) from Scan_tbl;"
+
+        '    cmd = New SqlCommand(queryId)
+        '    dsID.Clear()
+
+        '    sqlAdapter = New SqlDataAdapter(cmd.CommandText, myConn.openConnection)
+
+        '    sqlAdapter.Fill(dsID)
+
+
+        '    Dtable = dsID.Tables(0)
+
+
+        '    resultID = Dtable.Rows(0)(0)
+
+        '    myConn.closeConnection()
+
+
+        'Catch ex As Exception
+        '    myConn.closeConnection()
+        '    MessageBox.Show(ex.Message)
+        'End Try
+        'Return resultID
     End Function
     Private Sub insertNewScan()
         Try
