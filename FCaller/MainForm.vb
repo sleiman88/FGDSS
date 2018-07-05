@@ -405,6 +405,7 @@ Public Class MainForm
         Dim result As Boolean
         Dim reader As SqlDataReader
         Try
+
             result = False
 
 
