@@ -166,6 +166,12 @@
     <Compile Include="FAddNewExam.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Filebrowser.Designer.vb">
+      <DependentUpon>Filebrowser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Filebrowser.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="gdssomr.vb" />
     <Compile Include="getScanErreurs.vb" />
     <Compile Include="GradeAndAnswers.Designer.vb">
@@ -190,6 +196,12 @@
       <DependentUpon>MainForm.vb</DependentUpon>
     </Compile>
     <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultipleAnalyseMain.Designer.vb">
+      <DependentUpon>MultipleAnalyseMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MultipleAnalyseMain.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -243,6 +255,9 @@
     <EmbeddedResource Include="FAddNewExam.resx">
       <DependentUpon>FAddNewExam.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Filebrowser.resx">
+      <DependentUpon>Filebrowser.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GradeAndAnswers.resx">
       <DependentUpon>GradeAndAnswers.vb</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultipleAnalyseMain.resx">
+      <DependentUpon>MultipleAnalyseMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

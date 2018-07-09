@@ -40,6 +40,7 @@ Partial Class MainForm
         Me.TextBox_desc = New System.Windows.Forms.TextBox()
         Me.Button_GradeAndAnswers = New System.Windows.Forms.Button()
         Me.Button_AddNames = New System.Windows.Forms.Button()
+        Me.Btn_Multi = New System.Windows.Forms.Button()
         CType(Me.ExamstblBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MyDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -180,11 +181,21 @@ Partial Class MainForm
         Me.Button_AddNames.Text = "Add Names From Excel"
         Me.Button_AddNames.UseVisualStyleBackColor = True
         '
+        'Btn_Multi
+        '
+        Me.Btn_Multi.Location = New System.Drawing.Point(384, 103)
+        Me.Btn_Multi.Name = "Btn_Multi"
+        Me.Btn_Multi.Size = New System.Drawing.Size(138, 23)
+        Me.Btn_Multi.TabIndex = 14
+        Me.Btn_Multi.Text = "Start Analyse Multiple"
+        Me.Btn_Multi.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(917, 416)
+        Me.ClientSize = New System.Drawing.Size(1460, 489)
+        Me.Controls.Add(Me.Btn_Multi)
         Me.Controls.Add(Me.Button_AddNames)
         Me.Controls.Add(Me.Button_GradeAndAnswers)
         Me.Controls.Add(Me.TextBox_desc)
@@ -225,4 +236,5 @@ Partial Class MainForm
     Friend WithEvents TextBox_desc As TextBox
     Friend WithEvents Button_GradeAndAnswers As Button
     Friend WithEvents Button_AddNames As Button
+    Friend WithEvents Btn_Multi As Button
 End Class

@@ -466,4 +466,14 @@ Public Class MainForm
         'myConn.closeConnection()
         'Return result
     End Function
+
+    Private Sub Btn_Multi_Click(sender As Object, e As EventArgs) Handles Btn_Multi.Click
+        Dim NewMuliAnalyse As New MultipleAnalyseMain(Me)
+        NewMuliAnalyse.StartPosition = FormStartPosition.Manual
+
+        NewMuliAnalyse.DesktopLocation = Me.DesktopLocation
+        NewMuliAnalyse.Activate()
+
+        NewMuliAnalyse.Show()
+    End Sub
 End Class
