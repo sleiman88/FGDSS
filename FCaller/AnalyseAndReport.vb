@@ -40,7 +40,9 @@ Public Class AnalyseAndReport
     Public Sub fillAllDataGrid()
         fillMyDataGrid(DataGridView_good, myQuerry.getQuerryDataGridGood(IdScan), TextBox_Good)
         fillMyDataGrid(DataGridView_NotScanned, myQuerry.getQuerryDataGridNotScanned(IdScan), TextBox_PaperWithErreurs)
-        fillMyDataGrid(DataGridView_IdErrors, myQuerry.getQuerryDataGridIdErrors(IdScan), TextBox_IdErreurs)
+        fillMyDatagridWtihStoreProcedure(DataGridView_IdErrors, "getWithIdError", IdScan, TextBox_IdErreurs)
+        'fillMyDataGrid(DataGridView_IdErrors, myQuerry.getQuerryDataGridIdErrors(IdScan), TextBox_IdErreurs)
+
         fillMyDataGrid(DataGridView_TypeErreur, myQuerry.getQuerryDataGridTypeExamError(IdScan), TextBox_TypeErreur)
         fillMyDataGrid(DataGridView_Duplicated, myQuerry.getQuerryDataGridDuplicated(IdScan), TextBox_Duplicated)
         fillMyDataGrid(DataGridView_DuplicatedWithOtherScan, myQuerry.getQuerryDataGridDuplicatedWithOtherScan(IdScan), TextBox_duplicatedOtherScan)
@@ -77,6 +79,43 @@ Public Class AnalyseAndReport
         myConn.closeConnection()
 
 
+    End Sub
+
+    Private Sub fillMyDatagridWtihStoreProcedure(DataGridView As DataGridView, NameStoreProcedure As String, IdScan As String, MyTextBox As TextBox)
+        Try
+            Dim dsGrid As New DataSet()
+            Dim sqlAdapter As SqlDataAdapter
+            Dim cmd As New SqlCommand(NameStoreProcedure)
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = myConn.openConnection()
+            cmd.Parameters.AddWithValue("@IdScan", IdScan)
+            sqlAdapter = New SqlDataAdapter(cmd)
+
+            sqlAdapter.Fill(dsGrid)
+            DataGridView.ClearSelection()
+            Dim Dtable As DataTable
+            Dim result As Int32
+
+            Dtable = dsGrid.Tables(0)
+
+            If Dtable IsNot Nothing AndAlso Dtable.Rows.Count > 0 Then
+                result = Dtable.Rows(0)("count")
+            Else
+                result = 0
+            End If
+            MyTextBox.Text = result.ToString
+
+
+            DataGridView.DataSource = dsGrid.Tables(0)
+            DataGridView.Columns("count").Visible = False
+
+
+            myConn.closeConnection()
+
+        Catch ex As Exception
+            myConn.closeConnection()
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
     Private Sub Btn_Back_Click(sender As Object, e As EventArgs) Handles Btn_Back.Click
         Me.Hide()
