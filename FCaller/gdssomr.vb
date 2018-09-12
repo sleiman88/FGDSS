@@ -19,10 +19,11 @@ Public Class gdssomr
     Public resomrbookel As String
     Public resomrques(20) As String
     Public resomrid(5) As String
-
-    Dim qsx = 440, qsdx = 130, qsy = 365, qsdy = 127
+    'Dim qsx = 440, qsdx = 130, qsy = 365, qsdy = 127
+    Dim qsx = 340, qsdx = 130, qsy = 300, qsdy = 127
     Dim idsx = 636, idsdx = 145, idsy = 1630, idsdy = 128
-    Dim booklx = 1420, bookldx = 127, bookly = 885
+    Dim booklx = 1220, bookldx = 127, bookly = 585
+    ' Dim booklx = 1420, bookldx = 127, bookly = 885
 
     Private PctSourceImage As PictureBox
     Private PctOutputImage As PictureBox
@@ -359,7 +360,7 @@ Public Class gdssomr
         For j = 0 To 2
             coun = 0
             'mask ali 
-            'g1.DrawRectangle(skygreenPen, cooxbooklet, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
+            g1.DrawRectangle(skygreenPen, cooxbooklet, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
 
             countpix(cooxbooklet, cooy, imggray)
             If coun / 6000 > threashpers Then
@@ -385,7 +386,7 @@ Public Class gdssomr
 
             For i = 0 To 3
                 'mask ali 
-                'g1.DrawRectangle(skygreenPen, coox, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
+                g1.DrawRectangle(skygreenPen, coox, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
                 countpix(coox, cooy, imggray)
                 If coun / 6000 > threashpers Then
                     g1.FillRectangle(greenbrush, coox, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
@@ -417,7 +418,7 @@ Public Class gdssomr
                 Dim coox = idsx * 2 ' widint * 10
                 For i = 0 To 4
                     'mask ali 
-                    '  g1.DrawRectangle(skygreenPen, coox, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
+                    g1.DrawRectangle(skygreenPen, coox, cooy, Integer.Parse(Math.Floor(wid / 2)), Integer.Parse(Math.Floor(wid / 2)))
 
                     countpix(coox, cooy, imggray)
                     If coun / 6000 > threashpers Then
