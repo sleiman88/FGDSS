@@ -3,7 +3,9 @@ USE FOmrExams ;
 CREATE TABLE CandidatNames_tbl(
         [Id_Candidat]       Int           IDENTITY (1, 1) Not NULL,
         [CandidatNumber_Candidat]     NVARCHAR(10) NULL,
-		 [CandidatName_Candidat]     NVARCHAR(60) NULL,
+		 [CandidatName_Candidat]     NVARCHAR(60) Collate Arabic_100_CS_AI_KS_WS_SC  NULL,
+		  [CandidatName_Rank]     NVARCHAR(60) Collate Arabic_100_CS_AI_KS_WS_SC  NULL,
+		   [CandidatName_Station]     NVARCHAR(60) Collate Arabic_100_CS_AI_KS_WS_SC  NULL,
         PRIMARY KEY CLUSTERED ([Id_Candidat] ASC)
               );
 
