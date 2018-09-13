@@ -69,7 +69,7 @@ or D4_PaperOmrId not Like '_')  ;"
     Public Function getQuerryDataGridGood(IdScan As String) As String
         Dim query As String
         query = "SELECT Min(resolvedpath_paperomr) AS resolvedpath_paperomr , count(*) over() As 'count'
-FROM   paperomr_tbl JOIN paperomrid_tbl ON paperomr_tbl.id_paperomr = paperomrid_tbl.id_paperomr 
+FROM   paperomr_tbl JOIN paperomrid_tbl ON paperomr_tbl.id_paperomr = paperomrid_tbl.id_paperomr join CandidatNames_tbl on concat(D0_PaperOmrId ,D1_PaperOmrId ,D2_PaperOmrId ,D3_PaperOmrId ,D4_PaperOmrId )=CandidatNumber_Candidat  
 WHERE  error_exit IS NULL 
        AND d0_paperomrid LIKE '_' 
        AND d1_paperomrid LIKE '_' 

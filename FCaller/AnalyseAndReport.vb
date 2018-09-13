@@ -43,6 +43,8 @@ Public Class AnalyseAndReport
         fillMyDatagridWtihStoreProcedure(DataGridView_IdErrors, "getWithIdError", IdScan, TextBox_IdErreurs)
         'fillMyDataGrid(DataGridView_IdErrors, myQuerry.getQuerryDataGridIdErrors(IdScan), TextBox_IdErreurs)
 
+        fillMyDatagridWtihStoreProcedure(DataGridView_NotAllowed, "getNotAllowed", IdScan, TextBox_NotAllowed)
+
         fillMyDataGrid(DataGridView_TypeErreur, myQuerry.getQuerryDataGridTypeExamError(IdScan), TextBox_TypeErreur)
         fillMyDataGrid(DataGridView_Duplicated, myQuerry.getQuerryDataGridDuplicated(IdScan), TextBox_Duplicated)
         fillMyDataGrid(DataGridView_DuplicatedWithOtherScan, myQuerry.getQuerryDataGridDuplicatedWithOtherScan(IdScan), TextBox_duplicatedOtherScan)
@@ -554,6 +556,15 @@ where Id_Scan =" + IdScan + ")
         End If
     End Sub
 
+    Private Sub DataGridView_NotAllowed_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView_NotAllowed.RowHeaderMouseDoubleClick
+        If DataGridView_NotAllowed.Item(0, e.RowIndex).Value IsNot Nothing Then
+            callImgVieweWithEdit(DataGridView_NotAllowed.Item(0, e.RowIndex).Value.ToString(), IdScan)
+        End If
+    End Sub
 
-
+    Private Sub DataGridView_NotAllowed_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView_NotAllowed.CellContentDoubleClick
+        If DataGridView_NotAllowed.Item(0, e.RowIndex).Value IsNot Nothing Then
+            callImgVieweWithEdit(DataGridView_NotAllowed.Item(0, e.RowIndex).Value.ToString(), IdScan)
+        End If
+    End Sub
 End Class
