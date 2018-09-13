@@ -46,12 +46,14 @@ Partial Class AnalyseAndReport
         Me.TextBox_duplicatedOtherScan = New System.Windows.Forms.TextBox()
         Me.DataGridView_DuplicatedWithOtherScan = New System.Windows.Forms.DataGridView()
         Me.ProgressBar_Grade = New System.Windows.Forms.ProgressBar()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         CType(Me.DataGridView_good, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_NotScanned, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_IdErrors, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_TypeErreur, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_Duplicated, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView_DuplicatedWithOtherScan, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Btn_Back
@@ -262,11 +264,20 @@ Partial Class AnalyseAndReport
         Me.ProgressBar_Grade.TabIndex = 24
         Me.ProgressBar_Grade.Visible = False
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(768, 347)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(240, 192)
+        Me.DataGridView1.TabIndex = 25
+        '
         'AnalyseAndReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1261, 497)
+        Me.ClientSize = New System.Drawing.Size(1345, 720)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ProgressBar_Grade)
         Me.Controls.Add(Me.DataGridView_DuplicatedWithOtherScan)
         Me.Controls.Add(Me.TextBox_duplicatedOtherScan)
@@ -299,6 +310,7 @@ Partial Class AnalyseAndReport
         CType(Me.DataGridView_TypeErreur, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView_Duplicated, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView_DuplicatedWithOtherScan, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -328,4 +340,5 @@ Partial Class AnalyseAndReport
     Friend WithEvents TextBox_duplicatedOtherScan As TextBox
     Friend WithEvents DataGridView_DuplicatedWithOtherScan As DataGridView
     Public WithEvents ProgressBar_Grade As ProgressBar
+    Friend WithEvents DataGridView1 As DataGridView
 End Class
