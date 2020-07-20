@@ -52,7 +52,7 @@ Partial Class MainForm
         Me.ComboBox_ExamN.FormattingEnabled = True
         Me.ComboBox_ExamN.Location = New System.Drawing.Point(98, 15)
         Me.ComboBox_ExamN.Name = "ComboBox_ExamN"
-        Me.ComboBox_ExamN.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox_ExamN.Size = New System.Drawing.Size(301, 21)
         Me.ComboBox_ExamN.TabIndex = 0
         Me.ComboBox_ExamN.ValueMember = "Name_Exam"
         '
@@ -92,13 +92,13 @@ Partial Class MainForm
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(2, 54)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(55, 13)
+        Me.Label2.Size = New System.Drawing.Size(54, 13)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Language"
         '
         'Btn_NewExam
         '
-        Me.Btn_NewExam.Location = New System.Drawing.Point(273, 15)
+        Me.Btn_NewExam.Location = New System.Drawing.Point(419, 15)
         Me.Btn_NewExam.Name = "Btn_NewExam"
         Me.Btn_NewExam.Size = New System.Drawing.Size(75, 23)
         Me.Btn_NewExam.TabIndex = 4
@@ -124,7 +124,7 @@ Partial Class MainForm
         '
         'Button_browse
         '
-        Me.Button_browse.Location = New System.Drawing.Point(357, 149)
+        Me.Button_browse.Location = New System.Drawing.Point(520, 142)
         Me.Button_browse.Name = "Button_browse"
         Me.Button_browse.Size = New System.Drawing.Size(75, 23)
         Me.Button_browse.TabIndex = 7
@@ -133,7 +133,7 @@ Partial Class MainForm
         '
         'Button_Start
         '
-        Me.Button_Start.Location = New System.Drawing.Point(357, 212)
+        Me.Button_Start.Location = New System.Drawing.Point(520, 198)
         Me.Button_Start.Name = "Button_Start"
         Me.Button_Start.Size = New System.Drawing.Size(75, 23)
         Me.Button_Start.TabIndex = 8
@@ -165,7 +165,7 @@ Partial Class MainForm
         '
         'Button_GradeAndAnswers
         '
-        Me.Button_GradeAndAnswers.Location = New System.Drawing.Point(384, 15)
+        Me.Button_GradeAndAnswers.Location = New System.Drawing.Point(520, 15)
         Me.Button_GradeAndAnswers.Name = "Button_GradeAndAnswers"
         Me.Button_GradeAndAnswers.Size = New System.Drawing.Size(138, 23)
         Me.Button_GradeAndAnswers.TabIndex = 12
@@ -174,7 +174,7 @@ Partial Class MainForm
         '
         'Button_AddNames
         '
-        Me.Button_AddNames.Location = New System.Drawing.Point(384, 65)
+        Me.Button_AddNames.Location = New System.Drawing.Point(520, 54)
         Me.Button_AddNames.Name = "Button_AddNames"
         Me.Button_AddNames.Size = New System.Drawing.Size(138, 23)
         Me.Button_AddNames.TabIndex = 13
@@ -183,7 +183,7 @@ Partial Class MainForm
         '
         'Btn_Multi
         '
-        Me.Btn_Multi.Location = New System.Drawing.Point(384, 103)
+        Me.Btn_Multi.Location = New System.Drawing.Point(520, 98)
         Me.Btn_Multi.Name = "Btn_Multi"
         Me.Btn_Multi.Size = New System.Drawing.Size(138, 23)
         Me.Btn_Multi.TabIndex = 14

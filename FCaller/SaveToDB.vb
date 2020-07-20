@@ -278,68 +278,68 @@ Public Class SaveToDB
         'End Try
     End Sub
 
-    Private Function getCandidatAnswersFromDB() As Char()
-        'Try
-        '    Dim myGdsOmr As New gdssomr("", 1)
-        '    Dim temdataSet As New DataSet()
-        '    Dim tempSqlAdapter As SqlDataAdapter
-        '    Dim candCmd As SqlCommand
-        '    Dim query As String
-        '    query = "select * from PaperOmrQues_tbl where Id_PaperOmr = (select Id_PaperOmr  from PaperOmr_tbl  where Path_PaperOmr = '" + myGdsOmr.imgpath.ToString + "' and Id_Exams ='" + myGdsOmr.MyIdExam + "') ;"
-        '    candCmd = New SqlCommand(query)
+    'Private Function getCandidatAnswersFromDB() As Char()
+    'Try
+    '    Dim myGdsOmr As New gdssomr("", 1)
+    '    Dim temdataSet As New DataSet()
+    '    Dim tempSqlAdapter As SqlDataAdapter
+    '    Dim candCmd As SqlCommand
+    '    Dim query As String
+    '    query = "select * from PaperOmrQues_tbl where Id_PaperOmr = (select Id_PaperOmr  from PaperOmr_tbl  where Path_PaperOmr = '" + myGdsOmr.imgpath.ToString + "' and Id_Exams ='" + myGdsOmr.MyIdExam + "') ;"
+    '    candCmd = New SqlCommand(query)
 
 
-        '    tempSqlAdapter = New SqlDataAdapter(candCmd.CommandText, myconn.openConnection)
-        '    temdataSet.Clear()
-        '    tempSqlAdapter.Fill(temdataSet)
-        '    myconn.closeConnection()
-        '    Dim Dtable As DataTable = temdataSet.Tables(0)
+    '    tempSqlAdapter = New SqlDataAdapter(candCmd.CommandText, myconn.openConnection)
+    '    temdataSet.Clear()
+    '    tempSqlAdapter.Fill(temdataSet)
+    '    myconn.closeConnection()
+    '    Dim Dtable As DataTable = temdataSet.Tables(0)
 
-        '    For k = 0 To 19
+    '    For k = 0 To 19
 
-        '        CandidatAnswer(k) = Dtable.Rows(k)("QuesAns_paperOmrQues")
+    '        CandidatAnswer(k) = Dtable.Rows(k)("QuesAns_paperOmrQues")
 
-        '    Next
-        'Catch ex As Exception
-        '    myconn.closeConnection()
-        '    MessageBox.Show(ex.Message)
-        'End Try
-        'Dim aa As String
-
-
-        'Return CandidatAnswer
-    End Function
-    Private Function getTrueAnswersFromDb() As Char()
-        'Try
-
-        '    Dim temdataSet As New DataSet()
-        '    Dim tempSqlAdapter As SqlDataAdapter
-        '    Dim myCmd1 As SqlCommand
-        '    Dim query As String
-        '    query = "select * from Answers_tbl where Id_Exam =" + myGdsOmr.MyIdExam + " ;"
-        '    myCmd1 = New SqlCommand(query)
-        '    tempSqlAdapter = New SqlDataAdapter(myCmd1.CommandText, myconn.openConnection)
-        '    temdataSet.Clear()
-        '    tempSqlAdapter.Fill(temdataSet)
-        '    myconn.closeConnection()
-        '    Dim Dtable As DataTable = temdataSet.Tables(0)
-        '    'Dim Drow As DataRow
-        '    ' Dim Dcolumn As DataColumn
-
-        '    'result = Dtable.Rows(0)("LName")
-        '    For k = 0 To 19
-
-        '        TrueAnswer(k) = Dtable.Rows(k)("Ans_Ans")
-
-        '    Next
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message)
-        '    myconn.closeConnection()
-        'End Try
+    '    Next
+    'Catch ex As Exception
+    '    myconn.closeConnection()
+    '    MessageBox.Show(ex.Message)
+    'End Try
+    'Dim aa As String
 
 
-        'Return TrueAnswer
-    End Function
+    'Return CandidatAnswer
+    'End Function
+    ' Private Function getTrueAnswersFromDb() As Char()
+    'Try
+
+    '    Dim temdataSet As New DataSet()
+    '    Dim tempSqlAdapter As SqlDataAdapter
+    '    Dim myCmd1 As SqlCommand
+    '    Dim query As String
+    '    query = "select * from Answers_tbl where Id_Exam =" + myGdsOmr.MyIdExam + " ;"
+    '    myCmd1 = New SqlCommand(query)
+    '    tempSqlAdapter = New SqlDataAdapter(myCmd1.CommandText, myconn.openConnection)
+    '    temdataSet.Clear()
+    '    tempSqlAdapter.Fill(temdataSet)
+    '    myconn.closeConnection()
+    '    Dim Dtable As DataTable = temdataSet.Tables(0)
+    '    'Dim Drow As DataRow
+    '    ' Dim Dcolumn As DataColumn
+
+    '    'result = Dtable.Rows(0)("LName")
+    '    For k = 0 To 19
+
+    '        TrueAnswer(k) = Dtable.Rows(k)("Ans_Ans")
+
+    '    Next
+    'Catch ex As Exception
+    '    MessageBox.Show(ex.Message)
+    '    myconn.closeConnection()
+    'End Try
+
+
+    'Return TrueAnswer
+    'End Function
 
     Private Sub addPaper()
 

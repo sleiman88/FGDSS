@@ -63,7 +63,7 @@ Partial Class GradeAndAnswers
         Me.DataGridView_Exam.Location = New System.Drawing.Point(12, 67)
         Me.DataGridView_Exam.Name = "DataGridView_Exam"
         Me.DataGridView_Exam.ReadOnly = True
-        Me.DataGridView_Exam.Size = New System.Drawing.Size(325, 259)
+        Me.DataGridView_Exam.Size = New System.Drawing.Size(494, 259)
         Me.DataGridView_Exam.TabIndex = 2
         '
         'Btn_AddAnswers

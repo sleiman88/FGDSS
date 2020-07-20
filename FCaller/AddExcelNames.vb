@@ -30,26 +30,26 @@ Public Class AddExcelNames
             Dim workbook As Excel.Workbook
             workbook = APP.Workbooks.Open(TextBox_FilePath.Text)
             worksheet = workbook.Worksheets("SQL Results")
-            Dim Nbr(405) As Integer
-            Dim Name(405) As String
+            Dim Nbr(719) As Integer
+            Dim Name(719) As String
 
-            Dim NbrFixed(405) As String
-            Dim Rank(405) As String
-            Dim Station(405) As String
+            Dim NbrFixed(719) As String
+            Dim Rank(719) As String
+            Dim Station(719) As String
 
             ProgressBar1.Visible = True
             ProgressBar1.Minimum = 1
-            ProgressBar1.Maximum = 806
+            ProgressBar1.Maximum = 718
             ProgressBar1.Step = 1
             Dim k As Integer
             k = 1
             Dim temp As Integer
-            For i = 2 To 403
-                temp = worksheet.Cells(i, 4).Value.ToString
-                Name(k) = worksheet.Cells(i, 2).Value
+            For i = 2 To 718
+                temp = worksheet.Cells(i, 5).Value.ToString
+                Name(k) = worksheet.Cells(i, 4).Value
                 NbrFixed(k) = temp.ToString("D5")
                 Rank(k) = worksheet.Cells(i, 3).Value.ToString
-                Station(k) = worksheet.Cells(i, 5).Value.ToString
+                Station(k) = worksheet.Cells(i, 2).Value.ToString
                 k = k + 1
                 ProgressBar1.PerformStep()
                 'My.Application.Log.WriteEntry(worksheet.Cells(i, 4).Value)
@@ -65,7 +65,7 @@ Public Class AddExcelNames
             Dim query As String
             Dim cmd As SqlCommand
 
-            For k = 1 To 402
+            For k = 2 To 718
                 '  query = "INSERT INTO CandidatNames_tbl (CandidatNumber_Candidat,CandidatName_Candidat)
                 'VALUES('" + Nbr(k) + "',N'" + Name(k) + "');"
 

@@ -25,6 +25,7 @@ Public Class GradeAndAnswers
         Dim cmd As New SqlCommand(querry)
 
         sqlAdapter = New SqlDataAdapter(cmd.CommandText, myConn.openConnection)
+        DataGridView_Exam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells
 
         sqlAdapter.Fill(dsGrid)
         DataGridView_Exam.ClearSelection()
@@ -74,9 +75,9 @@ Public Class GradeAndAnswers
             ExamType = DataGridView_Exam.Item(2, rowIndex).Value.ToString()
             Dim querry As String
             querry = "select Id_Exam from Exams_tbl where 
-Name_Exam='" + ExamName + "' and Id_type =(select Id_type from Exams_type where Name_type ='" + ExamType + "') 
+Name_Exam=N'" + ExamName + "' and Id_type =(select Id_type from Exams_type where Name_type ='" + ExamType + "') 
 and Id_Language =(Select Id_Language from Exams_Language where Name_Language ='" + ExamLanguage + "');"
-
+            ' MsgBox(querry)
 
             Dim ds As New DataSet()
             Dim cmd = New SqlCommand(querry)
@@ -92,6 +93,7 @@ and Id_Language =(Select Id_Language from Exams_Language where Name_Language ='"
 
 
             result = Dtable.Rows(0)("Id_Exam")
+            '  MsgBox(result)
             myConn.closeConnection()
             ds.Dispose()
 

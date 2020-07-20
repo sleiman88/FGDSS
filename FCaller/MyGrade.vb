@@ -33,7 +33,7 @@ Public Class MyGrade
                 Dim TrueAnswerA(20), TrueAnswerB(20), TrueAnswerC(20) As Char
                 TrueAnswerA = getTrueAnswer(ExamId, "A")
                 TrueAnswerB = getTrueAnswer(ExamId, "B")
-                TrueAnswerC = getTrueAnswer(ExamId, "C")
+                '              TrueAnswerC = getTrueAnswer(ExamId, "C")
 
                 'Dim tempa, tempb, tempc As String
                 'tempa = ""
@@ -65,6 +65,7 @@ Public Class MyGrade
 
                     ElseIf String.Equals(tempType, "B") Then
                         Grade = getMyGrade(TrueAnswerB, getCandidatAnswersFromDB(LocalIdPaper)).ToString()
+
                     ElseIf String.Equals(tempType, "C") Then
                         Grade = getMyGrade(TrueAnswerC, getCandidatAnswersFromDB(LocalIdPaper)).ToString()
 
